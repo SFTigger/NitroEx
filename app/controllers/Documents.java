@@ -7,8 +7,8 @@ import play.mvc.With;
 public class Documents extends Controller {
 
     public static void index() {
-        render();
+    	String user = Security.connected();
+    	
+        render(user);
     }
-
-
 }
