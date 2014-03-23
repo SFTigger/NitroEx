@@ -2,6 +2,12 @@
 <head>
 </head>
 <body>
-Account creation page
+
+<form action="@{Accounts.create()}" method="POST">
+Email address: <input type="text" name="email"/>
+<p>
+Password: <input type="password" name="password"/>
+</form>
+
 </body>
 </html>
