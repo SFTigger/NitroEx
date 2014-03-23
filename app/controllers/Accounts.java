@@ -14,6 +14,6 @@ public class Accounts extends Controller {
     	Account a = new Account(email, password);
     	a.save();
     	
-    	// TOOD -- forward onto account view page
+    	render("/Documents/index.html");
     }
 }
