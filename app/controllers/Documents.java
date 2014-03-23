@@ -9,6 +9,7 @@ public class Documents extends Controller {
     public static void index() {
     	String user = Security.connected();
     	
-        render(user);
+    	renderArgs.put("user", user);
+        render();
     }
 }
