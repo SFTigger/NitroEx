@@ -2,6 +2,8 @@ package controllers;
 
 import play.mvc.Controller;
 
+import models.Account;
+
 public class Accounts extends Controller {
 
     public static void index() {
