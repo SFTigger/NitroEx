@@ -3,7 +3,10 @@
 # ~~~~
 
 # Home page
-GET     /                                          Instructions.index
+GET     /                                          Home.index
+
+# Account create
+GET		/accounts                                  Accounts.index
 
 # People
 GET        /people                                 People.index
