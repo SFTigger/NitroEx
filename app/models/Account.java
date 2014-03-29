@@ -15,7 +15,7 @@ public class Account extends Model {
     public String password;
     
     @OneToMany(mappedBy="account")
-    public Set<File>files = new HashSet<>();
+    public Set<File>files = new HashSet<File>();
 
     public Account(String email, String password){
     	this.email = email;
