@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /   										Home.index
+GET     /   									   Home.index
 
 # Account management
 GET		/accounts                                  Accounts.index
@@ -11,11 +11,18 @@ GET		/accounts                                  Accounts.index
 # Document management
 GET     /documents                                 Documents.index
 
+# Log out
+GET     /disconnect                                Home.logout
+
 # Ignore favicon requests
 GET        /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
 GET        /public/                                staticDir:public
+
+# Import Secure routes
+*      /                module:secure
+
 
 # Catch all
 *           /{controller}/{action}                 {controller}.{action}
