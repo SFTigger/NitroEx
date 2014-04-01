@@ -4,6 +4,7 @@ db/
 dist/
 logs/
 test-result/
+target/
 lib/
 tmp/
 modules/
