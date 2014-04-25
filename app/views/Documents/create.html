@@ -1,0 +1,31 @@
+<html>
+
+<head>
+<title>Document Confirmation</title>
+</head>
+
+<body>
+
+We have received your file ${document.name}. Please confirm the following tags we have
+discovered for it:
+
+<p>
+
+<form method="post" url="/documents/confirm">
+<input type="hidden" name="id" value="${document.id}"/>
+<input type="text" name="tags" value="
+%{
+     for(tag in document.tags) { 
+}%
+     ${tag.value}
+%{
+     }
+}%
+" />
+<input type="submit"/>
+
+</form>
+
+</body>
+
+</html>

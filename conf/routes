@@ -10,6 +10,8 @@ GET		/accounts                                  Accounts.index
 
 # Document management
 GET     /documents                                 Documents.index
+POST    /documents/create                          Documents.create
+POST    /documents/confirm                         Documents.confirm
 
 # Log out
 GET     /disconnect                                Home.logout

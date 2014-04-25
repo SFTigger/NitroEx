@@ -12,12 +12,8 @@ import java.util.HashSet;
 public class Tag extends Model {
 	
 	@ManyToMany
-	Set<File> suggestedFor = new HashSet<File>();
-	
-	@ManyToMany
-	Set<File> acceptedFor = new HashSet<File>();
+	Set<Document> documents = new HashSet<Document>();
 
-	
 	public String value;
 	
 	public Tag(String value){
