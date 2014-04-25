@@ -10,6 +10,9 @@ import models.Document;
 
 import java.io.IOException;
 
+import java.util.Set;
+import java.util.List;
+
 @With(Secure.class)
 public class Documents extends Controller {
 
@@ -17,7 +20,17 @@ public class Documents extends Controller {
     	String username = Security.connected();
     	Account account = Account.find("byEmail", username).first();
     	
-        render(account);
+    	// TODO -- figure out the pagination thing.
+    	
+    	Set<Document> ownedDocuments = account.documents;
+    	
+    	List<Document> allDocuments = Document.findAll();
+    	
+    	// filter owned documents from all documents
+    	
+    	allDocuments.removeAll(ownedDocuments);
+    	
+        render(account, ownedDocuments, allDocuments);
     }
     
     public static void create(File file) throws IOException {
@@ -30,7 +43,7 @@ public class Documents extends Controller {
         render(account, document);	
     }
     
-    public static void confirm(long id, String tags) {
+    public static void confirm(long id, String tags) {    	
     	Document document = Document.findById(id);
     	if(document != null){
     		document.resetTags(tags);

@@ -11,7 +11,7 @@ discovered for it:
 
 <p>
 
-<form method="post" url="/documents/confirm">
+<form method="post" action="@{Documents.confirm()}">
 <input type="hidden" name="id" value="${document.id}"/>
 <input type="text" name="tags" value="
 %{

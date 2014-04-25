@@ -1,7 +1,7 @@
 <html>
 
 <head>
-<title>Documents home page</title>
+<title>Documents index</title>
 </head>
 
 <body>
@@ -10,16 +10,55 @@ Hi ${account.email}!
 
 <p>
 
-<!-- put listings here -->
+OWNED DOCUMENTS:
+
+<ul>
+%{
+	for(doc in ownedDocuments) { 
+}%
+     <li>${doc.name}
+     <ul>
+%{
+	for(tag in doc.tags) { 
+}%
+     <li>${tag.value}</li>
+%{
+     }
+}%     
+     </ul>
+     </li>
+%{
+     }
+}%
+</ul>
 
 <p>
 
+OTHER DOCUMENTS:
 
+<ul>
+%{
+	for(doc in otherDocuments) { 
+}%
+     <li>${doc.name}
+     <ul>
+%{
+	for(tag in doc.tags) { 
+}%
+     <li>${tag.value}</li>
+%{
+     }
+}%     
+     </ul>
+     </li>
+%{
+     }
+}%
+</ul>
 
-<form action="/documents/create"
-       enctype="multipart/form-data"
-       method="post">
-       
+<p>
+
+<form action="@{Documents.create()}" enctype="multipart/form-data" method="post">
        Upload a new file: <input type="file" name="file">
        <p>
        <input type="submit">
